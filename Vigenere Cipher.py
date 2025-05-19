@@ -1,10 +1,12 @@
-# The Vigenère cipher is a method of encrypting alphabetic text where each letter of the plaintext is encoded with a different Caesar cipher,
-# whose increment is determined by the corresponding letter of another text, the key.
+# "The Vigenère cipher is a method of encrypting alphabetic text where each letter of the plaintext is encoded with a different Caesar cipher,
+# whose increment is determined by the corresponding letter of another text, the key." - https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
 
-# How It Works:
-#   Prompts the user to choose encryption or decryption and then to enter a message and a key
-#   Processes the message accordingly and outputs the result.
-#   Preserves spaces,numbers, and special characters
+# Outcomes:
+#   Prompts the user to choose encryption or decryption 
+#   Asks user for file or manual entry
+#   Asks the user to enter a message and a corresponding key
+#   Processes the message accordingly and outputs the result
+#   Preserves spaces, numbers, and special characters
 
 
 def vigenere_cipher(text, key, mode='encrypt'):
@@ -24,7 +26,7 @@ def vigenere_cipher(text, key, mode='encrypt'):
     result = []
 
     for i in range(len(text)):
-        if text[i].isalpha():  # Only process letters
+        if text[i].isalpha():  # Only processes letters
             shift = ord(key[i]) - ord('A')
             if mode == 'encrypt':
                 new_char = chr(
@@ -34,12 +36,12 @@ def vigenere_cipher(text, key, mode='encrypt'):
                     (ord(text[i]) - ord('A') - shift + 26) % 26 + ord('A'))
             result.append(new_char)
         else:
-            result.append(text[i])  # Preserve non-alphabet characters
+            result.append(text[i])  # Preserves numbers and special characters
 
     return ''.join(result)
 
 
-# Interactive Input with File Option
+# Input with file selection option
 mode = input(
     "Enter 'e' to encrypt a message or 'd' to decrypt a message: ").strip().lower()
 # Map e/d to full terms
@@ -54,7 +56,7 @@ file_option = input(
 
 if file_option == 'file':
     file_path = input("Enter the text file path: ").strip().strip(
-        '"')  # Removes extra quotes
+        '"')  # Removes extra quotation marks
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             message = file.read().strip()
