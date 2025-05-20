@@ -11,7 +11,7 @@ During World War II, encryption reached new heights with the **Enigma Machine**,
 
 Today, encryption has become highly sophisticated, with algorithms like **RSA**, **AES**, and **Elliptic Curve Cryptography** ensuring secure digital communication. These modern ciphers utilize complex mathematical functions and computational power to protect sensitive data across the globe.
 
-### Importance
+## Importance
 Ciphers serve as the backbone of cybersecurity, ensuring the confidentiality, integrity, and authenticity of information. Their importance is evident in various fields:
 
 - **Military and Government Security**, where they protect national intelligence and classified communications
@@ -22,7 +22,7 @@ Ciphers serve as the backbone of cybersecurity, ensuring the confidentiality, in
 
 Without strong encryption, sensitive information would be vulnerable to cyberattacks, fraud, and espionage.
 
-#### Applications
+## Applications
 Ciphers are used in a wide range of applications, including:
 - **Secure Messaging Apps** (like WhatsApp and Signal), employing end-to-end encryption. * Note this encryption is useless if you add unauthorized people to your chat
 - **Online Banking and E-Commerce**, securing financial data against fraud.
