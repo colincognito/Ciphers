@@ -24,11 +24,11 @@ Without strong encryption, sensitive information would be vulnerable to cyberatt
 
 #### **Applications of Ciphers**
 Ciphers are used in a wide range of applications, including:
-- **Secure Messaging Apps** (like WhatsApp and Signal), employing end-to-end encryption. * Note this encryptian is useless if you add unauthorized people to your chat
+- **Secure Messaging Apps** (like WhatsApp and Signal), employing end-to-end encryption. * Note this encryption is useless if you add unauthorized people to your chat
 - **Online Banking and E-Commerce**, securing financial data against fraud.
-- **Blockchain and Cryptocurrencies**, ensuring transactions are tamper-proof.
-- **Digital Signatures**, validating the authenticity of software and legal documents.
 - **Steganography**, hiding encrypted messages within images or audio files.
 - **Quantum Cryptography**, a growing field leveraging quantum mechanics for ultra-secure encryption.
 
 As technology advances, so too will cryptographic techniques, ensuring that ciphers remain an essential tool for safeguarding information in the digital era.
+
+This repository contains multiple types of ciphers that will allow the user to either encrypt or decrypt a message that is either entered manually or from a .txt file. 
