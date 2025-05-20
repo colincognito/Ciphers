@@ -14,11 +14,11 @@ Today, encryption has become highly sophisticated, with algorithms like **RSA**,
 #### **Why Ciphers Are Important**
 Ciphers serve as the backbone of cybersecurity, ensuring the confidentiality, integrity, and authenticity of information. Their importance is evident in various fields:
 
-- **Military and Government Security** – Protecting national intelligence and classified communications.
-- **Personal Privacy** – Safeguarding personal conversations and transactions from cyber threats.
-- **Financial Transactions** – Securing online banking, credit card details, and e-commerce data.
-- **Digital Authentication** – Enabling password protection, biometric security, and secure messaging.
-- **Data Integrity** – Ensuring stored and transmitted information remains unaltered.
+- **Military and Government Security**, where they protect national intelligence and classified communications
+- **Personal Privacy**, safeguards personal conversations and transactions from cyber threats
+- **Financial Transactions**, secures online banking, credit card details, and e-commerce data
+- **Digital Authentication**, enables password protection, biometric security, and secure messaging
+- **Data Integrity**, ensures stored and transmitted information remains unaltered
 
 Without strong encryption, sensitive information would be vulnerable to cyberattacks, fraud, and espionage.
 
