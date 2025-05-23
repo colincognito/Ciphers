@@ -7,7 +7,9 @@
 #   Asks the user to enter a message and a corresponding key
 #   Processes the message accordingly and outputs the result
 #   Preserves spaces, numbers, and special characters
+#   Saves the output as a .txt file only when a .txt file is given by the user
 
+import os
 
 def vigenere_cipher(text, key, mode='encrypt'):
     """
@@ -20,46 +22,41 @@ def vigenere_cipher(text, key, mode='encrypt'):
     """
     text = text.upper()
     key = key.upper()
-    # Repeat key to match text length
-    key = (key * (len(text) // len(key) + 1))[:len(text)]
+    key = (key * (len(text) // len(key) + 1))[:len(text)]  # Repeat key to match text length
 
     result = []
 
     for i in range(len(text)):
-        if text[i].isalpha():  # Only processes letters
+        if text[i].isalpha():  # Only process letters
             shift = ord(key[i]) - ord('A')
             if mode == 'encrypt':
-                new_char = chr(
-                    (ord(text[i]) - ord('A') + shift) % 26 + ord('A'))
+                new_char = chr((ord(text[i]) - ord('A') + shift) % 26 + ord('A'))
             elif mode == 'decrypt':
-                new_char = chr(
-                    (ord(text[i]) - ord('A') - shift + 26) % 26 + ord('A'))
+                new_char = chr((ord(text[i]) - ord('A') - shift + 26) % 26 + ord('A'))
             result.append(new_char)
         else:
-            result.append(text[i])  # Preserves numbers and special characters
+            result.append(text[i])  # Preserve non-alphabet characters
 
     return ''.join(result)
 
 
-# Input with file selection option
-mode = input(
-    "Enter 'e' to encrypt a message or 'd' to decrypt a message: ").strip().lower()
-# Map e/d to full terms
+mode = input("Enter 'e' to encrypt a message or 'd' to decrypt a message: ").strip().lower()
 mode = 'encrypt' if mode == 'e' else 'decrypt' if mode == 'd' else None
 
 if mode is None:
     print("Invalid mode. Please enter either 'e' or 'd'.")
     exit()
 
-file_option = input(
-    "Enter 'file' to read from a text file, or 'man'ual to type the message: ").strip().lower()
+file_option = input("Enter 'file' to read from a text file, or 'man'ual to type the message: ").strip().lower()
+
+save_to_file = False
 
 if file_option == 'file':
-    file_path = input("Enter the text file path: ").strip().strip(
-        '"')  # Removes extra quotation marks
+    file_path = input("Enter the text file path: ").strip().strip('"')  # Removes extra quotes from copied file path
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             message = file.read().strip()
+        save_to_file = True  # Enable saving since input is from a file
     except FileNotFoundError:
         print("Error: File not found.")
         exit()
@@ -71,6 +68,15 @@ key = input("Enter the key: ").strip()
 if mode in ['encrypt', 'decrypt']:
     processed_message = vigenere_cipher(message, key, mode)
     print(f"Processed message ({mode}): {processed_message}")
+
+    if save_to_file:  # Only save if the file option was selected
+        downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
+        output_file = os.path.join(downloads_path, "processed_message.txt")
+
+        with open(output_file, "w", encoding="utf-8") as f:
+            f.write(processed_message)
+
+        print(f"File saved to {output_file}")
 else:
     print("Invalid mode. Please enter 'e' or 'd'.")
 
